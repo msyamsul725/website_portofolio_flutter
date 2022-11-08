@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:fhe_template/services/myproject.dart';
 import 'package:flutter/material.dart';
 import '../controller/navigation_new_controller.dart';
 import '../widget/header_nav.dart';
@@ -261,7 +262,7 @@ class NavigationNewView extends StatefulWidget {
                 ],
               ),
               Container(
-                height: 400.0,
+                height: 360.0,
                 width: double.infinity,
                 color: Colors.white,
                 child: Stack(
@@ -280,14 +281,14 @@ class NavigationNewView extends StatefulWidget {
                     Column(
                       children: [
                         Text(
-                          "technical skills",
+                          "Provide Services",
                           style: GoogleFonts.nunito(
-                            fontSize: 20.0,
+                            fontSize: 36.0,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         const SizedBox(
-                          height: 20.0,
+                          height: 40.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -311,6 +312,289 @@ class NavigationNewView extends StatefulWidget {
                               icon: Icons.scanner,
                             ),
                           ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 590.0,
+                width: double.infinity,
+                color: Colors.white,
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Personal Project",
+                            style: GoogleFonts.nunito(
+                              fontSize: 36.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 40.0,
+                          ),
+                          SingleChildScrollView(
+                            controller: ScrollController(),
+                            child: SizedBox(
+                              width: 680.0,
+                              height: 322.0,
+                              child: ListView.builder(
+                                itemCount: Myproject.myproject.length,
+                                padding: const EdgeInsets.only(left: 24.0),
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  var item = Myproject.myproject[index];
+                                  return Container(
+                                    margin: const EdgeInsets.only(left: 20.0),
+                                    decoration: const BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color(0x19000000),
+                                          blurRadius: 24,
+                                          offset: Offset(0, 11),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Card(
+                                      child: SizedBox(
+                                        width: 300.0,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width,
+                                                height: 160.0,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: NetworkImage(
+                                                      item['photo'],
+                                                    ),
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                padding:
+                                                    const EdgeInsets.all(12.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          item[
+                                                              'state_management'],
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 12.0,
+                                                          ),
+                                                        ),
+                                                        const Spacer(),
+                                                        Text(
+                                                          item['backend'],
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 10.0,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 10.0,
+                                                    ),
+                                                    Text(
+                                                      item["project_name"],
+                                                      style: const TextStyle(
+                                                        fontSize: 12.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 6.0,
+                                                    ),
+                                                    Text(
+                                                      item['description'],
+                                                      maxLines: 4,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: const TextStyle(
+                                                        fontSize: 12.0,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 6.0,
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        CircleAvatar(
+                                                          radius: 12.0,
+                                                          backgroundColor:
+                                                              Colors.grey[200],
+                                                          backgroundImage:
+                                                              const NetworkImage(
+                                                            "https://i.ibb.co/sqRTGfL/photo-1514543250559-83867827ecce-ixlib-rb-1-2.jpg",
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 8.0,
+                                                        ),
+                                                        Expanded(
+                                                          child: Text(
+                                                            item['hacker'],
+                                                            style:
+                                                                const TextStyle(
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              color:
+                                                                  Colors.orange,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        const Text(
+                                                          "Read more",
+                                                          style: TextStyle(
+                                                            fontSize: 10.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                Colors.orange,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 360.0,
+                width: double.infinity,
+                color: Colors.white,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      right: -200.0,
+                      child: Container(
+                        height: 330.0,
+                        width: 430.0,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(300.0),
+                        ),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "technologies used on Development",
+                          style: GoogleFonts.nunito(
+                            fontSize: 36.0,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 40.0,
+                        ),
+                        SizedBox(
+                          height: 100.0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 80.0,
+                                child: Image.network(
+                                  "https://i.ibb.co/zrZBdWW/logo-flutter-1080px-clr.png",
+                                  width: 64.0,
+                                  height: 64.0,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40.0,
+                              ),
+                              SizedBox(
+                                width: 60.0,
+                                child: Image.network(
+                                  "https://i.ibb.co/pr5Pf3n/firebase-logo-png-firebase-logo-png-transparent-amp-svg-vector-pluspng-2400x3291.png",
+                                  width: 64.0,
+                                  height: 64.0,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40.0,
+                              ),
+                              SizedBox(
+                                width: 100.0,
+                                child: Image.network(
+                                  "https://i.ibb.co/6wH1d44/mysql-logo-2800x2800-pixels1-1024x1024.png",
+                                  height: 64.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40.0,
+                              ),
+                              SizedBox(
+                                width: 80.0,
+                                child: Image.network(
+                                  "https://i.ibb.co/hgvps2M/img-336173.png",
+                                  height: 64.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40.0,
+                              ),
+                              SizedBox(
+                                width: 80.0,
+                                child: Image.network(
+                                  "https://i.ibb.co/xzYYQht/Python-logo-icon.png",
+                                  height: 64.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40.0,
+                              ),
+                              SizedBox(
+                                width: 80.0,
+                                child: Image.network(
+                                  "https://i.ibb.co/HLSc6gw/6fd83f6c101f85bb417448302daedfb9.png",
+                                  height: 64.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

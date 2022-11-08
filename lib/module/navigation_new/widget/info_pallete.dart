@@ -61,18 +61,6 @@ class _InfoPalleteState extends State<InfoPallete> {
         const SizedBox(
           height: 15.0,
         ),
-        Text(
-          "Learn More....",
-          style: GoogleFonts.nunito(
-            fontWeight: FontWeight.w800,
-            fontSize: 14.0,
-          ),
-        ),
-        Container(
-          height: 1.5,
-          width: 90.0,
-          color: Colors.black87,
-        )
       ],
     );
   }
