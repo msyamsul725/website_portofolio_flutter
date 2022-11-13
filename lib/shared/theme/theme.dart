@@ -1,45 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-var defaultTheme = ThemeData(
-  // primarySwatch:  Color(0xffFA533C),
-  primaryColor: const Color(0xffFA533C),
-  primarySwatch: Colors.orange,
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      shape: ContinuousRectangleBorder(
-        borderRadius: BorderRadius.circular(64.0),
+import 'theme_constants.dart';
+
+ThemeData getDefaultTheme() {
+  return ThemeData(
+    primaryColor: primaryColor,
+    primarySwatch: primarySwatch,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        shape: ContinuousRectangleBorder(
+          borderRadius: BorderRadius.circular(64.0),
+        ),
+        foregroundColor: Colors.white,
       ),
-      foregroundColor: Colors.white,
     ),
-  ),
-  appBarTheme: AppBarTheme(
-    backgroundColor: Colors.white,
-    elevation: 0.6,
-    titleTextStyle: GoogleFonts.montserrat(
-      color: Colors.blueGrey[700],
+    appBarTheme: AppBarTheme(
+      backgroundColor: appbarBackgroundColor,
+      elevation: 0.6,
+      titleTextStyle: GoogleFonts.montserrat(
+        color: Colors.blueGrey[700],
+        fontWeight: FontWeight.bold,
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.blueGrey[700],
+      ),
+    ),
+    scaffoldBackgroundColor: scaffoldBackgroundColor,
+    drawerTheme: DrawerThemeData(
+      backgroundColor: drawerBackgroundColor,
     ),
     iconTheme: IconThemeData(
-      color: Colors.blueGrey[700],
+      color: fontColor,
     ),
-  ),
-  scaffoldBackgroundColor: const Color(0xffEBEDEF),
-  // textTheme: GoogleFonts.montserratTextTheme().copyWith(
-  textTheme: GoogleFonts.montserratTextTheme().copyWith(
-    bodyText1: TextStyle(
-      color: Colors.blueGrey[700],
+    textTheme: TextTheme(
+      bodyText1: googleFont.copyWith(color: fontColor),
+      bodyText2: googleFont.copyWith(color: fontColor),
     ),
-    bodyText2: TextStyle(
-      color: Colors.blueGrey[700],
+    cardTheme: CardTheme(
+      elevation: cardElevation,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(cardBorderRadius),
+      ),
     ),
-  ),
-  iconTheme: IconThemeData(
-    color: Colors.blueGrey[700],
-  ),
-  cardTheme: CardTheme(
-    elevation: 0.8,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(24.0),
+    chipTheme: const ChipThemeData(),
+    tabBarTheme: TabBarTheme(
+      labelColor: fontColor,
     ),
-  ),
-);
+  );
+}

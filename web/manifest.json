@@ -1,6 +1,6 @@
 {
-    "name": "blank_fire_setstate",
-    "short_name": "blank_fire_setstate",
+    "name": "myporto",
+    "short_name": "myporto",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,35 +1,25 @@
-// Copyright 2013 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-import 'package:fhe_template/router/router.dart';
-import 'package:fhe_template/setup.dart';
-import 'package:fhe_template/shared/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-final GlobalKey<NavigatorState> rootNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'root');
-final GlobalKey<NavigatorState> shellNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'shell');
+import 'module/home/view/home_view.dart';
+import 'setup.dart';
+import 'shared/theme/theme.dart';
 
 void main() async {
   await initialize();
-  runApp(const ShellRouteExampleApp());
+
+  runApp(MaterialApp(
+    title: 'Example',
+    debugShowCheckedModeBanner: false,
+    theme: getDefaultTheme(),
+    home: const HomeView(),
+  ));
 }
 
-/// An example demonstrating how to use [ShellRoute]
-class ShellRouteExampleApp extends StatelessWidget {
-  /// Creates a [ShellRouteExampleApp]
-  const ShellRouteExampleApp({Key? key}) : super(key: key);
+/*
+? How to change icon:
+1. Add image to assets/icon/icon.png
+2. Run this command:
+  
+  flutter pub run flutter_launcher_icons:main
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: defaultTheme,
-      routerConfig: getRouters(context, rootNavigatorKey, shellNavigatorKey),
-    );
-  }
-}
+*/
