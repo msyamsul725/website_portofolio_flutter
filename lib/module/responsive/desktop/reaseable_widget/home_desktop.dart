@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,27 +56,54 @@ class _NyobaState extends State<SMHome> {
                     left: 100.0,
                     child: SizedBox(
                       height: 400.0,
-                      width: 400.0,
+                      width: 420.0,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
                             height: 40.0,
                           ),
-                          Text(
-                            ' Hello, I am',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 46.0,
-                              fontWeight: FontWeight.w700,
-                            ),
+                          AnimatedTextKit(
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                ' Hello, I am',
+                                textStyle: GoogleFonts.montserrat(
+                                  fontSize: 46.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                speed: const Duration(milliseconds: 400),
+                              ),
+                              TypewriterAnimatedText(
+                                ' Syamsul Maarif',
+                                textStyle: GoogleFonts.montserrat(
+                                  fontSize: 46.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                speed: const Duration(milliseconds: 400),
+                              ),
+                            ],
+                            isRepeatingAnimation: true,
+                            totalRepeatCount: 20,
+                            pause: const Duration(milliseconds: 400),
+                            displayFullTextOnTap: true,
+                            stopPauseOnTap: true,
                           ),
-                          Text(
-                            'Syamsul Maarif',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 46.0,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
+                          // AnimatedTextKit(
+                          //   animatedTexts: [
+                          //     TypewriterAnimatedText(
+                          //       ' Syamsul Maarif',
+                          //       textStyle: GoogleFonts.montserrat(
+                          //         fontSize: 46.0,
+                          //         fontWeight: FontWeight.w700,
+                          //       ),
+                          //       speed: const Duration(milliseconds: 900),
+                          //     ),
+                          //   ],
+                          //   totalRepeatCount: 4,
+                          //   pause: const Duration(milliseconds: 1000),
+                          //   displayFullTextOnTap: true,
+                          //   stopPauseOnTap: true,
+                          // ),
                           const SizedBox(
                             height: 20.0,
                           ),

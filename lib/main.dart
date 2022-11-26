@@ -1,25 +1,22 @@
+import 'package:fhe_template/module/home/view/home_view.dart';
+import 'package:fhe_template/setup.dart';
+import 'package:fhe_template/state_util.dart';
 import 'package:flutter/material.dart';
-
-import 'module/home/view/home_view.dart';
-import 'setup.dart';
-import 'shared/theme/theme.dart';
 
 void main() async {
   await initialize();
 
-  runApp(MaterialApp(
-    title: 'Example',
-    debugShowCheckedModeBanner: false,
-    theme: getDefaultTheme(),
-    home: const HomeView(),
-  ));
+  Widget mainView = const HomeView();
+
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      navigatorKey: Get.navigatorKey,
+      title: 'Portofolio',
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+      ),
+      home: mainView,
+    ),
+  );
 }
-
-/*
-? How to change icon:
-1. Add image to assets/icon/icon.png
-2. Run this command:
-  
-  flutter pub run flutter_launcher_icons:main
-
-*/
